@@ -4,7 +4,7 @@ setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 
 #Data Import
 library(tidyverse)
-week4_df <- read.delim("../data/week4.dat", sep = "-", col.names = c("casenum", "parnum", "stimver", "datadate", "qs"))
+week4_df <- read_delim("../data/week4.dat", "-", col_names = c("casenum", "parnum", "stimver", "datadate", "qs"))
 str(week4_df)
 week4_df <- separate(week4_df, qs, c("q1", "q2", "q3", "q4", "q5"), sep = " - ")
 week4_df[,c(5:9)] <- sapply(week4_df[,c(5:9)], as.integer)
